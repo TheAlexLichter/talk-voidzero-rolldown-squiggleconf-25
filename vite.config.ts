@@ -1,11 +1,6 @@
 import { defineConfig } from 'vite'
-import { visualizer } from "rollup-plugin-visualizer";
 
 export default defineConfig({
-  plugins: [visualizer({
-      emitFile: true,
-      filename: "stats.html",
-  })],
   slidev: {
     icons: {
       customCollections: {

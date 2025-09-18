@@ -328,7 +328,7 @@ And why do I need one?
 
 ---
 
-<img src="/tree-chart.png" class="h-100 mx-auto">
+<img src="/treemap-chart.png" class="h-100 mx-auto">
 
 ---
 layout: intro
@@ -340,7 +340,7 @@ layout: intro
 
 <img src="https://pbs.twimg.com/media/F8K5cyBawAAtbDh?format=jpg&name=large" alt="No build!?" class="h-100 mx-auto"> 
 
-<noto-cross-mark v-click class="text-6xl text-red-500 transition-all duration-200" v-drag="[440,87,249,214]" />
+<noto-cross-mark v-click class="text-6xl text-red-500 transition-all duration-200" v-drag="[414,119,167,147]" />
 
 ---
 
@@ -350,7 +350,6 @@ function HelloWorld() {
   return (
     <div>
       <h1>Hello SquiggleConf!</h1>
-      <p>This is a simple React SFC component.</p>
     </div>
   );
 }
@@ -364,7 +363,7 @@ const message = ref('Hello SquiggleConf!');
 <template>
   <div>
     <h1>{{ message }}</h1>
-    <p>This is a simple Vue SFC component.</p>
+    <p>This is a simple SFC component.</p>
     <input v-model="message" />
   </div>
 </template>
@@ -430,6 +429,8 @@ layout: intro
 
 # Why another bundler?!
 
+<VoidzeroIconsRolldown size="7.5rem" class="mx-auto mt-12" />
+
 ---
 
 # Why another bundler?!
@@ -454,12 +455,12 @@ layout: intro
   * Combines the best parts of prior art:
     * Rollup's API and compat to the plugin ecosystem
     * Speed and behavior from esbuild (such as `inject`)
-    * Optimization features that you know from webpack (advanced chunking)
+    * Inspiration for optimization features from webpack (advanced chunking)
   * Experimental features:
-    * Module Federation support (WIP)
-    * HMR built-in
+    * Built-in HMR
     * Import map generation
     * CSS Bundling
+    * First class Module Federation (WIP)
   * Minification via [Oxc](https://oxc.rs/)
 
   </VClicks>
@@ -468,7 +469,12 @@ layout: intro
 
   <div class="col-span-1">
     <div class="h-full flex justify-end items-center">      
-      <VoidzeroIconsRolldown size="10rem" />
+      <VoidzeroIconsRolldown
+        size="10rem"
+        v-motion
+        :initial="{ y: -400, rotate: 0, opacity: 0 }"
+        :enter="{ y: 0, rotate: 360, opacity: 1, transition: { duration: 800 } }"
+      />
     </div>
   </div>
 </div>
