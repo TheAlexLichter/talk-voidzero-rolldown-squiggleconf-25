@@ -54,7 +54,7 @@ transition: none
   <logos-remix-icon class="filter filter-invert" size="4rem" />
 
   <!-- Row 3 -->
-  <img src="https://github.com/TanStack/tanstack.com/blob/main/src/images/logo-600w.png?raw=true" class="w-20" />
+  <img src="https://raw.githubusercontent.com/TanStack/tanstack.com/refs/heads/main/public/images/logos/logo-color-600.png" class="w-20" />
   <logos-laravel size="4rem" />
   <logos-ruby size="4rem" />
   <logos-marko size="4rem" />
@@ -306,6 +306,131 @@ layout: intro
 # Why another bundler?!
 
 ---
+layout: intro
+---
+
+# What is a bundler?!
+
+<VClicks>
+
+And why do I need one?
+
+</VClicks>
+
+---
+
+<img src="https://user-images.githubusercontent.com/1402241/126045972-c0a1e9db-d3fc-46a4-b836-1567043a65ce.png" class="h-90 mx-auto">
+<span class="text-xs">
+
+[Source](https://github.com/pahen/madge/issues/289)
+
+</span>
+
+---
+
+<img src="/tree-chart.png" class="h-100 mx-auto">
+
+---
+layout: intro
+---
+
+# Why?
+
+---
+
+<img src="https://pbs.twimg.com/media/F8K5cyBawAAtbDh?format=jpg&name=large" alt="No build!?" class="h-100 mx-auto"> 
+
+<noto-cross-mark v-click class="text-6xl text-red-500 transition-all duration-200" v-drag="[440,87,249,214]" />
+
+---
+
+````md magic-move
+```jsx
+function HelloWorld() {
+  return (
+    <div>
+      <h1>Hello SquiggleConf!</h1>
+      <p>This is a simple React SFC component.</p>
+    </div>
+  );
+}
+```
+```vue
+<script setup>
+import { ref } from 'vue';
+const message = ref('Hello SquiggleConf!');
+</script>
+
+<template>
+  <div>
+    <h1>{{ message }}</h1>
+    <p>This is a simple Vue SFC component.</p>
+    <input v-model="message" />
+  </div>
+</template>
+```
+```ts
+const a: number = '1'
+```
+```ts
+const a: number = '1'
+```
+```js
+import { format } from 'date-fns'
+console.log(format(new Date(), 'yyyy-MM-dd'))
+```
+```js
+const e=6048e5,t=3600*24;t*7,t*365.2425;const n=Symbol.for(`constructDateFrom`);
+function r(e,t){return typeof e==`function`?e(t):e&&typeof e==`object`&&
+n in e?e[n](t):e instanceof Date?new e.constructor(t):new Date(t)}
+function i(e,t){return r(t||e,e)}let a={};function o(){return a}
+function s(e,t){let n=o(),r=t?.weekStartsOn??t?.locale?.options?.weekStartsOn??
+n.weekStartsOn??n.locale?.options?.weekStartsOn??0,a=i(e,t?.in),s=a.getDay(),
+c=(s<r?7:0)+s-r;
+return a.setDate(a.getDate()-c),a.setHours(0,0,0,0),a}function c(e,t){
+return s(e,{...t,weekStartsOn:1})}function l(e,t){let n=i(e,t?.in),
+a=n.getFullYear(),o=r(n,0);o.setFullYear(a+1,0,4),o.setHours(0,0,0,0);
+let s=c(o),l=r(n,0);l.setFullYear(a,0,4),l.setHours(0,0,0,0);let u=c(l);
+return n.getTime()>=s.getTime()?a+1:n.getTime()>=u.getTime()?a:a-1}
+function u(e){let t=i(e),n=new Date(Date.UTC(t.getFullYear(),
+t.getMonth(),t.getDate(),t.getHours(),t.getMinutes(),t.getSeconds(),t.getMilliseconds()));
+return n.setUTCFullYear(t.getFullYear()),e-+n}function d(e,...t)
+{let n=r.bind(null,e||t.find(e=>typeof e==`object`));return t.map(n)}
+function f(e,t){let n=i(e,t?.in);return n.setHours(0,0,0,0),n}
+function p(e,t,n){let[r,i]=d(n?.in,e,t),a=f(r),o=f(i),s=+a-u(a),c=+o-u(o);
+return Math.round((s-c)/864e5)}function m(e,t){let n=l(e,t),i=r(t?.in||e,0);
+return i.setFullYear(n,0,4),i.setHours(0,0,0,0),c(i)} /*...*/ 
+```
+````
+
+<svg v-click="[3,4]" v-drag="[78,72,157,40]" xmlns="http://www.w3.org/2000/svg" width="450" height="17" fill="none">
+  <path stroke="#F14C4C" stroke-linecap="round" stroke-width="8.4" d="m182.791 7.132-2.337 2.56c-2.591 2.841-5.9 2.914-8.534.187l-2.367-2.45c-2.61-2.702-5.887-2.657-8.47.118l-1.984 2.13c-2.648 2.843-6.016 2.816-8.647-.07l-2.259-2.475c-2.654-2.911-6.055-2.911-8.711 0l-2.213 2.426c-2.655 2.911-6.056 2.911-8.711 0l-2.214-2.426c-2.655-2.911-6.055-2.911-8.71 0l-2.214 2.426c-2.655 2.911-6.055 2.911-8.711 0l-2.133-2.338c-2.697-2.956-6.157-2.907-8.824.125l-1.759 2c-2.666 3.032-6.127 3.081-8.823.125l-2.134-2.338c-2.654-2.911-6.055-2.911-8.71 0l-2.214 2.426c-2.655 2.911-6.056 2.911-8.711 0l-2.213-2.426c-2.656-2.911-6.057-2.911-8.711 0l-2.214 2.426c-2.655 2.911-6.056 2.911-8.71 0l-2.26-2.476c-2.655-2.91-6.169-2.861-8.823.05L28.336 9.47c-2.696 2.956-6.157 2.907-8.823-.125l-1.76-2C15.088 4.313 11.697 4.176 9 7.132L5 11.5m177.791-4.368c2.655-2.911 6.056-2.911 8.71 0m-8.71 0c2.696-2.956 6.044-3.032 8.71 0m0 0 2.214 2.426m0 0c2.655 2.911 6.056 2.911 8.71 0m-8.71 0c2.667 3.032 6.015 2.956 8.71 0m0 0 2.214-2.426c2.655-2.911 6.056-2.911 8.712 0l2.213 2.426m0 0c2.655 2.911 6.056 2.911 8.711 0m-8.711 0c2.654 2.911 6.056 2.911 8.711 0m0 0 2.213-2.426m0 0c2.656-2.911 8.045-2.911 10.7 0m-10.7 0c2.655-2.911 8.044-2.911 10.7 0m0 0 2.213 2.426m0 0c2.696 2.956 4.089 2.819 6.755-.213m-6.755.213c2.655 2.911 4.1 2.697 6.755-.213m0 0 1.759-2c2.667-3.032 8.425-3.169 11.121-.213m-12.88 2.213 1.956-2c2.655-2.91 8.27-3.124 10.924-.213m0 0 2.134 2.338c2.696 2.956 6.157 2.907 8.823-.125l1.759-2c2.667-3.032 6.127-3.081 8.824-.125l2.133 2.338c2.656 2.911 6.056 2.911 8.711 0l2.214-2.426c2.655-2.911 6.055-2.911 8.71 0l2.214 2.426c2.655 2.911 6.056 2.911 8.711 0l2.213-2.426c2.656-2.911 6.057-2.911 8.711 0l2.259 2.476c2.631 2.885 5.999 2.912 8.647.07l1.984-2.13c2.583-2.776 5.86-2.821 8.47-.119l2.367 2.45c2.634 2.727 5.943 2.655 8.534-.187l2.337-2.56c2.655-2.911 6.056-2.911 8.71 0l2.214 2.426c2.655 2.911 6.056 2.911 8.71 0l2.215-2.426c2.654-2.911 6.055-2.911 8.711 0l2.213 2.426c2.655 2.911 6.056 2.911 8.711 0l2.213-2.426c2.656-2.911 6.057-2.911 8.711 0l2.134 2.338c2.696 2.956 6.157 2.907 8.823-.125l1.759-2c2.667-3.032 6.127-3.081 8.824-.125l1.594 2.25c2.696 2.956 6.157 2.907 8.823-.125l1.759-2"/>
+</svg>
+
+---
+
+# What is a bundler?!
+And why do I need one?
+
+
+<VClicks depth="2"> 
+
+* Transforms your non-JS code into JavaScript
+* Removes unused code from dependencies
+* Combines/spreads your code and dependencies into files (chunks)
+  * Allows to load unneeded JS on demand and not initially
+  * Reduce network requests and waterfalls
+* Smaller bundles due to minification
+
+</VClicks>
+
+---
+layout: intro
+---
+
+# Why another bundler?!
+
+---
 
 # Why another bundler?!
 
@@ -323,11 +448,9 @@ layout: intro
 <h1 class="text-center">Time to meet Rolldown</h1>
 <div class="grid grid-cols-5">
   <div class="col-span-4">
-
-  * <span class="underline font-bold">More</span> **than a "rustified" Rollup!**
-
   <VClicks depth="2">
 
+  * <span class="underline font-bold">More</span> **than a "rustified" Rollup!**
   * Combines the best parts of prior art:
     * Rollup's API and compat to the plugin ecosystem
     * Speed and behavior from esbuild (such as `inject`)
@@ -335,7 +458,7 @@ layout: intro
   * Experimental features:
     * Module Federation support (WIP)
     * HMR built-in
-    * Import Map generation
+    * Import map generation
     * CSS Bundling
   * Minification via [Oxc](https://oxc.rs/)
 
@@ -501,7 +624,7 @@ export default function myPlugin() {
 
 ---
 
-# Raw Transform & More
+# Raw Transfer & More
 
 <VClicks depth="2">
 
