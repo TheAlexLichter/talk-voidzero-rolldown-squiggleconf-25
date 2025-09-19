@@ -504,6 +504,10 @@ layout: intro
 
 # Oxc Components
 
+---
+
+# Parser
+
 <VClicks depth="2">
 
 * [Fastest](https://github.com/oxc-project/bench-javascript-parser-written-in-rust) Parser (3x than `swc`), spec-conform (passing all Test262 stage 4 tests)
@@ -516,11 +520,113 @@ layout: intro
 
 </VClicks>
 
-<!--
 
-Ecmascript comformance test suits
+---
 
--->
+# Resolver
+
+<BarChart
+  :tools="[{name: 'oxc-resolver', value: 0.0243}, { name: 'enhanced-resolve', value: 0.9026}]"
+  title="Speed comparison for module resolution (lower is better)"
+  unit="Time to resolve (in ms)" 
+  class="h-80 min-w-full" />
+
+
+---
+
+# Transformer
+
+<VClicks depth="2">
+
+* Transforms JavaScript/TypeScript code
+* 40x faster than Babel, 4x faster than `swc`
+* DTS emits (with Isolated Declarations) are ~20-45x faster than `tsc`
+</VClicks>
+
+<Chart
+  type="bar"
+  :data="{
+    labels: ['Oxc', 'swc', 'babel', 'tsc'],
+    datasets: [
+      {
+        label: 'Transform Speed (ops/sec)',
+        data: [16000, 4000, 400, 800],
+        backgroundColor: ['#4F8CFF', '#FFB347', '#A3A3A3', '#F14C4C'],
+      },
+    ],
+  }"
+  :options="{ responsive: true, plugins: { legend: { display: false } } }"
+  class="h-60 mx-auto"
+/>
+
+---
+
+---
+layout: two-cols
+heading: Linter (Oxlint)
+---
+
+<VClicks depth="2">
+* JavaScript linter, ESLint-compatible
+* 50-100x faster than ESLint
+</VClicks>
+
+<Chart
+  type="bar"
+  :data="{
+    labels: ['Oxlint', 'ESLint'],
+    datasets: [
+      {
+        label: 'Lint Speed (ops/sec)',
+        data: [50000, 500],
+        backgroundColor: ['#4F8CFF', '#F14C4C'],
+      },
+    ],
+  }"
+  :options="{ responsive: true, plugins: { legend: { display: false } } }"
+  class="h-60 mx-auto"
+/>
+
+---
+
+---
+layout: two-cols
+heading: Minifier
+---
+
+<VClicks depth="2">
+* Minifies JavaScript with best speed/compression combo
+</VClicks>
+
+<Chart
+  type="bar"
+  :data="{
+    labels: ['Oxc', 'esbuild', 'terser'],
+    datasets: [
+      {
+        label: 'Minify Speed (ops/sec)',
+        data: [9000, 7000, 1200],
+        backgroundColor: ['#4F8CFF', '#FFB347', '#F14C4C'],
+      },
+    ],
+  }"
+  :options="{ responsive: true, plugins: { legend: { display: false } } }"
+  class="h-60 mx-auto"
+/>
+
+---
+
+---
+layout: two-cols
+heading: Formatter
+---
+
+<VClicks depth="2">
+* Prettier-compatible code formatter
+* Focused on performance (work in progress)
+</VClicks>
+
+<!-- Chart will be added when available -->
 
 ---
 
