@@ -951,10 +951,17 @@ layout: intro
 </VClicks>
 
 ---
+
+<img src="https://pbs.twimg.com/media/Gohwe6aWMAAW1CA?format=jpg&name=medium" class="h-90 mx-auto filter filter-invert">
+
+<span class="text-xs">[Made by Herrington Darkholme](https://x.com/hd_nvim/status/1911901720982024321/photo/1)</span>
+
+---
 layout: intro
 ---
 
-# ~5x faster (in typical cases) compared to normal serialization
+# ~5x speedup
+## compared to classic serialization, in typical cases
 
 ---
 
@@ -965,7 +972,7 @@ layout: intro
 * Also allows to explore **Lazy Deserialization**
   * Do not decode the buffer anymore
   * Only deserialize the AST nodes you are accessing on-demand
-  * Approx ~3x faster than "just raw transfer"
+  * Approx **~3x faster** than "just raw transfer"
 * And this can also work for the opposite operation
   * Magic-String like API, but executed on the Rust side
   * Send only "instructions", let Rust handle the AST modification
