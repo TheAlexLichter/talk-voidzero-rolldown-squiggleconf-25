@@ -1,0 +1,31 @@
+{
+  "name": "talk",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "52.1.0",
+    "@slidev/theme-default": "^0.25.0",
+    "@slidev/theme-seriph": "^0.25.0",
+    "@unovis/ts": "^1.6.1",
+    "@unovis/vue": "^1.6.1",
+    "@vueuse/integrations": "^13.8.0",
+    "chart.js": "^4.5.0",
+    "qrcode": "^1.5.4",
+    "vue-chartjs": "^5.3.2"
+  },
+  "devDependencies": {
+    "@iconify-json/logos": "^1.2.9",
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/noto": "^1.2.6",
+    "playwright-chromium": "^1.55.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "npm:rolldown-vite@latest"
+    }
+  }
+}
