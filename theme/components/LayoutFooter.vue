@@ -15,7 +15,7 @@ defineProps({
 const voidZeroImgSuffix = computed(() => isDark.value ? '-white' : '')
 const voidZeroImg = computed(() => `https://voidzero.dev/icon${voidZeroImgSuffix.value}.svg`)
 const logoImgPrefix = computed(() => isDark.value ? 'white' : 'black')
-const logoImg = computed(() => `https://raw.githubusercontent.com/manniL/lichter.io/main/public/img/logo/glyph-and-word-${logoImgPrefix.value}-colored.svg`)
+const logoImg = computed(() => `https://raw.githubusercontent.com/manniL/lichter.io/main/public/img/logo/glyph-${logoImgPrefix.value}-colored.svg`)
 </script>
 
 <template>
@@ -24,8 +24,8 @@ const logoImg = computed(() => `https://raw.githubusercontent.com/manniL/lichter
   >
     <div class="flex justify-between w-full dark:text-white">
       <a :href="website || $slidev.configs.website" class="flex gap-2 border-b-0!">
-        <img v-show="!hideLogoInCorner && !$slidev.configs.hideLogoInCorner" class="w-10 h-10" :src="voidZeroImg" />
-        <img v-show="!hideLogoInCorner && !$slidev.configs.hideLogoInCorner" class="w-10 h-10" :src="logoImg" />
+        <img v-show="!hideLogoInCorner && !$slidev.configs.hideLogoInCorner" class="w-4 h-4" :src="voidZeroImg" />
+        <img v-show="!hideLogoInCorner && !$slidev.configs.hideLogoInCorner" class="w-4 h-4" :src="logoImg" />
       </a>
       <span>{{ $slidev.nav.currentPage }}</span>
     </div>

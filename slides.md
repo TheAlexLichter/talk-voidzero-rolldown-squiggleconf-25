@@ -12,27 +12,6 @@ transition: fade
 
 ---
 layout: intro
----
-
-<!--
-
-TODO
-
-* What is a bundler
-* What is a builder
-
-* Graphs for Slide 17
-* 
-
-TODO: Questions at the end
-
--->
-
-## What do all these frameworks have in common?
-
-
----
-layout: intro
 preload: false
 transition: none
 ---
@@ -40,34 +19,123 @@ transition: none
 <div class="flex justify-center items-center h-full w-full">
 
 <div class="grid grid-cols-4 gap-y-8 gap-x-32 items-center">
-
   <!-- Row 1 -->
-  <logos-analog size="4rem" />
-  <logos-angular-icon size="4rem" />
-  <logos-react size="4rem" />
-  <logos-vue size="4rem" />
+  <logos-analog
+    size="4rem"
+    v-motion
+    :initial="{ y: -60, opacity: 0 }"
+    :enter="{ y: 0, opacity: 1, transition: { delay: 100, duration: 400 } }"
+  />
+  <logos-angular-icon
+    size="4rem"
+    v-motion
+    :initial="{ y: -60, opacity: 0 }"
+    :enter="{ y: 0, opacity: 1, transition: { delay: 200, duration: 400 } }"
+  />
+  <logos-react
+    size="4rem"
+    v-motion
+    :initial="{ y: -60, opacity: 0 }"
+    :enter="{ y: 0, opacity: 1, transition: { delay: 300, duration: 400 } }"
+  />
+  <logos-vue
+    size="4rem"
+    v-motion
+    :initial="{ y: -60, opacity: 0 }"
+    :enter="{ y: 0, opacity: 1, transition: { delay: 400, duration: 400 } }"
+  />
 
   <!-- Row 2 -->
-  <logos-svelte-icon size="4rem" />
-  <logos-solidjs-icon size="4rem" />
-  <logos-ember size="4rem" />
-  <logos-remix-icon class="filter filter-invert" size="4rem" />
+  <logos-svelte-icon
+    size="4rem"
+    v-motion
+    :initial="{ y: -60, opacity: 0 }"
+    :enter="{ y: 0, opacity: 1, transition: { delay: 500, duration: 400 } }"
+  />
+  <logos-solidjs-icon
+    size="4rem"
+    v-motion
+    :initial="{ y: -60, opacity: 0 }"
+    :enter="{ y: 0, opacity: 1, transition: { delay: 600, duration: 400 } }"
+  />
+  <logos-ember
+    size="4rem"
+    v-motion
+    :initial="{ y: -60, opacity: 0 }"
+    :enter="{ y: 0, opacity: 1, transition: { delay: 700, duration: 400 } }"
+  />
+  <logos-remix-icon
+    class="filter filter-invert"
+    size="4rem"
+    v-motion
+    :initial="{ y: -60, opacity: 0 }"
+    :enter="{ y: 0, opacity: 1, transition: { delay: 800, duration: 400 } }"
+  />
 
   <!-- Row 3 -->
-  <img src="https://raw.githubusercontent.com/TanStack/tanstack.com/refs/heads/main/public/images/logos/logo-color-600.png" class="w-20" />
-  <logos-laravel size="4rem" />
-  <logos-ruby size="4rem" />
-  <logos-marko size="4rem" />
+  <img
+    src="https://raw.githubusercontent.com/TanStack/tanstack.com/refs/heads/main/public/images/logos/logo-color-600.png"
+    class="w-20"
+    v-motion
+    :initial="{ y: -60, opacity: 0 }"
+    :enter="{ y: 0, opacity: 1, transition: { delay: 900, duration: 400 } }"
+  />
+  <logos-laravel
+    size="4rem"
+    v-motion
+    :initial="{ y: -60, opacity: 0 }"
+    :enter="{ y: 0, opacity: 1, transition: { delay: 1000, duration: 400 } }"
+  />
+  <logos-ruby
+    size="4rem"
+    v-motion
+    :initial="{ y: -60, opacity: 0 }"
+    :enter="{ y: 0, opacity: 1, transition: { delay: 1100, duration: 400 } }"
+  />
+  <logos-marko
+    size="4rem"
+    v-motion
+    :initial="{ y: -60, opacity: 0 }"
+    :enter="{ y: 0, opacity: 1, transition: { delay: 1200, duration: 400 } }"
+  />
 
   <!-- Row 4 -->
-  <img src="https://vitepress.dev/vitepress-logo-large.svg" alt="VitePress" class="w-16 ml-2" />
-  <logos-qwik-icon size="4rem" />
-  <logos-redwoodjs size="4rem" />
-  <logos-nuxt-icon size="4rem" />
-
+  <img
+    src="https://vitepress.dev/vitepress-logo-large.svg"
+    alt="VitePress"
+    class="w-16 ml-2"
+    v-motion
+    :initial="{ y: -60, opacity: 0 }"
+    :enter="{ y: 0, opacity: 1, transition: { delay: 1300, duration: 400 } }"
+  />
+  <logos-qwik-icon
+    size="4rem"
+    v-motion
+    :initial="{ y: -60, opacity: 0 }"
+    :enter="{ y: 0, opacity: 1, transition: { delay: 1400, duration: 400 } }"
+  />
+  <logos-redwoodjs
+    size="4rem"
+    v-motion
+    :initial="{ y: -60, opacity: 0 }"
+    :enter="{ y: 0, opacity: 1, transition: { delay: 1500, duration: 400 } }"
+  />
+  <logos-nuxt-icon
+    size="4rem"
+    v-motion
+    :initial="{ y: -60, opacity: 0 }"
+    :enter="{ y: 0, opacity: 1, transition: { delay: 1600, duration: 400 } }"
+  />
 </div>
 
 </div>
+
+---
+layout: intro
+---
+
+# What do all these frameworks have in common?
+
 
 ---
 layout: intro
@@ -595,7 +663,7 @@ layout: intro
 * Linter for JavaScript and TypeScript (including JSX/TSX)
 * Partial custom component support for now (`<script>` part of Vue/Svelte/... compoennts)
 * 50~100x faster than ESLint
-* 500+ rules ported from popular ESLint plugins
+* 570+ rules ported from popular ESLint plugins
 * Used in [Preact](https://github.com/preactjs/preact/blob/main/oxlint.json), [Bun](https://github.com/oven-sh/bun/blob/main/oxlint.json), [Vue](https://github.com/vuejs/core/pull/13326) (PR open), Shopify, Airbnb, Mercedes-Benz, and many other projects
 * Stable, but a lot of features are being worked on:
   * Type-Aware linting (in preview already!)
@@ -671,7 +739,7 @@ layout: intro
 <VClicks depth="2">
 
 * Just (re-)writing JS tooling in Rust **is not enough**
-* How to reduce overhead between JS and Rust (e.g. rollup/rolldown plugins)?
+* How to reduce overhead between JS and Rust (e.g. for Rollup/Rolldown or custom Oxlint plugins)?
 * How to transfer data, AST, and instructions efficiently?
 * How to have interop with other tooling (such as `ts-go`) in other languages?
 * How to make sure people can still write their integrations/plugins in JS and TS?
@@ -735,17 +803,51 @@ export default function myPlugin() {
 
 ---
 
-# Raw Transfer & More
+# Transferring AST
+
+<VClicks>
+
+* AST transfer between Rust and JS is expensive!
+* Large cost of serializing/deserializing it
+* So how to reduce the overhead?
+
+</VClicks>
+
+---
+layout: intro
+---
+
+# No serialization!
+
+---
+
+# Raw transfer
+
+<VClicks>
+
+
+* JS creates an ArrayBuffer and passes it to Rust.
+* Rust creates an Allocator using that buffer as its backing memory.
+* Rust parses the AST into that allocator (including comments).
+* Rust also converts module record and errors into arena types, and writes them into the allocator.
+* Rust writes into the end of the buffer the offset at which data begins in the buffer.
+* Control passes back to JS.
+* JS code decodes data in the buffer, and creates JS objects fitting the ESTree shape.
+
+</VClicks>
+
+---
+
+# And there is more...
 
 <VClicks depth="2">
 
-* How to serialize the AST and send it from Rust to JS?
-  * **You don't!** Transferring it raw instead as memory block via `SharedArrayBuffer`
 * Also allows **Lazy Deserialization**
   * Only parse the AST nodes you are interested in
-* Magic-String like API, but executed on the Rust side
+* And this can also work for the opposite operation
+  * Magic-String like API, but executed on the Rust side
   * Send only "instructions", let Rust handle the AST modification
-* Exploring how to run rules in parallel on the JS side too
+* On another note: Exploring how to run rules in parallel on the JS side too
   * For example by spawning worker threads
   * Will also help for a more efficient `transform` hook in Rolldown
 
