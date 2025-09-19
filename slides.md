@@ -980,10 +980,19 @@ layout: intro
 </VClicks>
 
 ---
-layout: intro
+clicks: 4
 ---
 
-<div class="flex flex-col items-center justify-center">
+<div
+  class="flex flex-col items-center justify-center"
+  v-motion
+  :initial="{ y: 0 }"
+  :enter="{y: 150 }"
+  :click-1="{ y: 0, transition: { duration: 600 } }"
+  :click-2="{ y: -150, transition: { duration: 600 } }"
+  :click-3="{ y: -300, scale: 1, transition: { duration: 600 } }"
+  :click-4="{ y: 150, scale: 2.5, transition: { duration: 600 } }"
+>
   <!-- Framework Level -->
   <div class="flex flex-col items-center">
     <span class="text-3xl font-bold mb-2">Your Framework</span>
@@ -991,33 +1000,33 @@ layout: intro
   </div>
 
   <!-- Down Arrow -->
-  <span class="text-4xl">↓</span>
+  <span :class="$clicks < 1 && 'invisible'" class="text-4xl">↓</span>
 
   <!-- Vite Level -->
-  <div class="flex flex-col items-center">
+  <div :class="$clicks < 1 && 'invisible'" class="flex flex-col items-center">
     <logos-vitejs size="4rem" class="mb-2" />
     <span class="text-2xl font-semibold">Vite</span>
     <span class="text-gray-400 text-sm mt-1">Build tool, dev server, plugin system</span>
   </div>
 
   <!-- Down Arrow -->
-  <span class="text-4xl">↓</span>
+  <span :class="($clicks < 2 || $clicks > 3) && 'invisible'" class="text-4xl">↓</span>
 
   <!-- Rolldown Level -->
-  <div class="flex flex-col items-center">
+  <div :class="$clicks < 2 && 'invisible'" class="flex flex-col items-center">
     <VoidzeroIconsRolldown size="4rem" class="mb-2 rounded-full shadow-2xl border-2 border-black/50" />
     <span class="text-xl font-semibold">Rolldown</span>
-    <span class="text-gray-400 text-sm mt-1">Bundler, chunking, plugin compatibility</span>
+    <span class="text-gray-400 text-sm mt-1">Bundler, DCE & Treeshaking, Chunking</span>
   </div>
 
   <!-- Down Arrow -->
-  <span class="text-4xl my-2">↓</span>
+  <span :class="$clicks < 3 && 'invisible'" class="text-4xl my-2">↓</span>
 
   <!-- Oxc Level -->
-  <div class="flex flex-col items-center">
+  <div :class="$clicks < 3 && 'invisible'" class="flex flex-col items-center">
     <VoidzeroIconsOxc size="4rem" class="mb-2" />
     <span class="text-lg font-semibold">Oxc</span>
-    <span class="text-gray-400 text-sm mt-1">Parser, transformer, linter, minifier</span>
+    <span class="text-gray-400 text-sm mt-1">Parser, Resolver, Transformer,  Minifier, Linter, Formatter</span>
   </div>
 </div>
 
