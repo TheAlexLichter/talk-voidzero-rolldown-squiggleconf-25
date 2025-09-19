@@ -1006,7 +1006,7 @@ clicks: 4
   <div :class="$clicks < 1 && 'invisible'" class="flex flex-col items-center">
     <logos-vitejs size="4rem" class="mb-2" />
     <span class="text-2xl font-semibold">Vite</span>
-    <span class="text-gray-400 text-sm mt-1">Build tool, dev server, plugin system</span>
+    <span class="text-gray-400 text-sm mt-1">Build tool, dev server, plugin system (and more?!?)</span>
   </div>
 
   <!-- Down Arrow -->
