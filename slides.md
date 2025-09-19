@@ -805,6 +805,8 @@ export default function myPlugin() {
 
 # Transferring AST
 
+<div class="grid grid-cols-5">
+  <div class="col-span-2">
 <VClicks>
 
 * AST transfer between Rust and JS is expensive!
@@ -812,12 +814,125 @@ export default function myPlugin() {
 * So how to reduce the overhead?
 
 </VClicks>
+  </div>
+  <div v-click="4" class="col-span-3 overflow-y-scroll h-90">
+````md magic-move {at: 5}
+```rust
+Vec([
+  VariableDeclaration(
+    VariableDeclaration {
+      span: Span {
+        start: 0,
+        end: 11,
+      },
+      declarations: Vec(
+        [
+          VariableDeclarator {
+            span: Span {
+              start: 6,
+              end: 11,
+            },
+            id: BindingPattern {
+              kind: BindingIdentifier(
+                BindingIdentifier {
+                  span: Span {
+                    start: 6,
+                    end: 7,
+                  },
+                  name: "a",
+                  symbol_id: Cell {
+                    value: Some(
+                      SymbolId(
+                        0,
+                      ),
+                    ),
+                  },
+                },
+              ),
+              type_annotation: None,
+              optional: false,
+            },
+            init: Some(
+              NumericLiteral(
+                NumericLiteral {
+                  span: Span {
+                    start: 10,
+                    end: 11,
+                  },
+                  value: 1.0,
+                  raw: Some(
+                    "1",
+                  ),
+                  base: Decimal,
+                },
+              ),
+            ),
+            kind: Const,
+            definite: false,
+          },
+        ],
+      ),
+      kind: Const,
+      declare: false,
+    },
+  )
+])
+```
+```js
+{
+  "type": "Program",
+  "body": [
+    {
+      "type": "VariableDeclaration",
+      "kind": "const",
+      "declarations": [
+        {
+          "type": "VariableDeclarator",
+          "id": {
+            "type": "Identifier",
+            "decorators": [],
+            "name": "a",
+            "optional": false,
+            "typeAnnotation": null,
+            "start": 6,
+            "end": 7
+          },
+          "init": {
+            "type": "Literal",
+            "value": 1,
+            "raw": "1",
+            "start": 10,
+            "end": 11
+          },
+          "definite": false,
+          "start": 6,
+          "end": 11
+        }
+      ],
+      "declare": false,
+      "start": 0,
+      "end": 11
+    }
+  ],
+  "sourceType": "module",
+  "hashbang": null,
+  "start": 0,
+  "end": 11
+}
+```
+```js
+const a = 1
+```
+````
+  </div>
+</div>
+
 
 ---
 layout: intro
 ---
 
-# No serialization!
+# **No serialization!**
 
 ---
 
@@ -825,16 +940,21 @@ layout: intro
 
 <VClicks>
 
-
-* JS creates an ArrayBuffer and passes it to Rust.
-* Rust creates an Allocator using that buffer as its backing memory.
-* Rust parses the AST into that allocator (including comments).
+* JS creates an `ArrayBuffer` and passes it to Rust.
+* Rust creates an `Allocator` and uses the buffer as backing memory.
+* Rust parses the AST into that allocator
 * Rust also converts module record and errors into arena types, and writes them into the allocator.
-* Rust writes into the end of the buffer the offset at which data begins in the buffer.
+* Insert the offset at which data begins in the buffer at the end of the buffer.
 * Control passes back to JS.
 * JS code decodes data in the buffer, and creates JS objects fitting the ESTree shape.
 
 </VClicks>
+
+---
+layout: intro
+---
+
+# ~5x faster (in typical cases) compared to normal serialization
 
 ---
 
@@ -842,8 +962,10 @@ layout: intro
 
 <VClicks depth="2">
 
-* Also allows **Lazy Deserialization**
-  * Only parse the AST nodes you are interested in
+* Also allows to explore **Lazy Deserialization**
+  * Do not decode the buffer anymore
+  * Only deserialize the AST nodes you are accessing on-demand
+  * Approx ~3x faster than "just raw transfer"
 * And this can also work for the opposite operation
   * Magic-String like API, but executed on the Rust side
   * Send only "instructions", let Rust handle the AST modification
@@ -917,14 +1039,6 @@ heading: Future plans of Rolldown-Vite
       </span>
     </div>
   </div>
-</div>
-
-<div class="mx-auto text-center mt-8 space-y-4">
-
-## Available to try now as `rolldown-vite`
-
-### [vite.dev/rolldown](https://vite.dev/rolldown)
-
 </div>
 
 ---
