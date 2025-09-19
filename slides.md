@@ -510,16 +510,35 @@ layout: intro
 
 <VClicks depth="2">
 
-* [Fastest](https://github.com/oxc-project/bench-javascript-parser-written-in-rust) Parser (3x than `swc`), spec-conform (passing all Test262 stage 4 tests)
-* [Fastest](https://github.com/oxc-project/bench-resolver) Resolver (26x faster than `enhanced-resolve`)
-* [Fastest](https://github.com/oxc-project/bench-transformer) Transformer (40x Babel, 4x `swc`)
-  * DTS emits (with Isolated Declarations) are ~20-45x faster than `tsc`
-* [Fastest](https://github.com/oxc-project/bench-javascript-linter) Linter - Oxlint (50~100x faster than ESLint)
-* Minifier with [best speed/compression combo](https://github.com/privatenumber/minification-benchmarks)
-* Prettier-compatible & performant Formatter is work in progress
+* Transforms JavaScript/TypeScript code into an AST (Abstract Syntax Tree)
+* `oxc-parser` is the **[fastest](https://github.com/oxc-project/bench-javascript-parser-written-in-rust) JavaScript parser**
+* Spec-conform (passes all Test262 stage 4 tests)
+* 3x faster than `swc`, 5x faster than `Biome`
 
 </VClicks>
 
+---
+
+# Parser 
+
+<BarChart
+  :tools="[{name: 'oxc', value: 52}, {name: 'swc', value: 164.5}, {name: 'biome', value: 296.5}]"
+  title="Speed comparison parsing typescript.js (parallel)"
+  unitLegend="Time to parse (in ms)" 
+   />
+
+---
+
+# Resolver
+
+<VClicks depth="2">
+
+* Module resolver for JavaScript/TypeScript
+* Implements for both ESM and CJS module resolution
+* Built-in support for tsconfig (`extends`, `paths` aliases, project reference support)
+* 28x faster than `enhanced-resolve`, [fastest](https://github.com/oxc-project/bench-resolver) resolver
+
+</VClicks>
 
 ---
 
@@ -528,8 +547,8 @@ layout: intro
 <BarChart
   :tools="[{name: 'oxc-resolver', value: 0.0243}, { name: 'enhanced-resolve', value: 0.9026}]"
   title="Speed comparison for module resolution (lower is better)"
-  unit="Time to resolve (in ms)" 
-  class="h-80 min-w-full" />
+  unitLegend="Time to resolve (in ms)" 
+   />
 
 
 ---
@@ -538,109 +557,50 @@ layout: intro
 
 <VClicks depth="2">
 
-* Transforms JavaScript/TypeScript code
-* 40x faster than Babel, 4x faster than `swc`
-* DTS emits (with Isolated Declarations) are ~20-45x faster than `tsc`
+* Transforms non-JS code such as TypeScript or JSX to ESNext
+* Built-in React Refresh
+* Syntax lowering possible (e.g. ESNext to ES2015)
+* Can emit `.d.ts` files, faster than using `tsc` (but needs `isolatedDeclarations`)
+* Built-in support for `styled-components`
+* [Fastest](https://github.com/oxc-project/bench-transformer) transformer
+
 </VClicks>
 
-<Chart
-  type="bar"
-  :data="{
-    labels: ['Oxc', 'swc', 'babel', 'tsc'],
-    datasets: [
-      {
-        label: 'Transform Speed (ops/sec)',
-        data: [16000, 4000, 400, 800],
-        backgroundColor: ['#4F8CFF', '#FFB347', '#A3A3A3', '#F14C4C'],
-      },
-    ],
-  }"
-  :options="{ responsive: true, plugins: { legend: { display: false } } }"
-  class="h-60 mx-auto"
-/>
+---
+
+# Transformer: Emitting `.d.ts`
+
+<BarChart
+  :tools="[{name: 'oxc', value: 0.1272 }, { name: 'tsc', value: 12.4706 }]"
+  title="Speed comparison for emitting .d.ts files (lower is better)"
+  unitLegend="Time to emit (in ms)"
+   />
 
 ---
 
----
-layout: two-cols
-heading: Linter (Oxlint)
----
+# Transformer: Transforming and lowering
 
-<VClicks depth="2">
-* JavaScript linter, ESLint-compatible
-* 50-100x faster than ESLint
-</VClicks>
-
-<Chart
-  type="bar"
-  :data="{
-    labels: ['Oxlint', 'ESLint'],
-    datasets: [
-      {
-        label: 'Lint Speed (ops/sec)',
-        data: [50000, 500],
-        backgroundColor: ['#4F8CFF', '#F14C4C'],
-      },
-    ],
-  }"
-  :options="{ responsive: true, plugins: { legend: { display: false } } }"
-  class="h-60 mx-auto"
-/>
+<BarChart
+  :tools="[{name: 'oxc', value: 0.1952 }, { name: 'swc', value: 0.7636 }, { name: 'babel', value: 11.6479 }]"
+  title="Speed comparison for transforming & lowering to ES2015 (lower is better)"
+  unitLegend="Time to transform (in ms)"
+   />
 
 ---
 
----
-layout: two-cols
-heading: Minifier
----
-
-<VClicks depth="2">
-* Minifies JavaScript with best speed/compression combo
-</VClicks>
-
-<Chart
-  type="bar"
-  :data="{
-    labels: ['Oxc', 'esbuild', 'terser'],
-    datasets: [
-      {
-        label: 'Minify Speed (ops/sec)',
-        data: [9000, 7000, 1200],
-        backgroundColor: ['#4F8CFF', '#FFB347', '#F14C4C'],
-      },
-    ],
-  }"
-  :options="{ responsive: true, plugins: { legend: { display: false } } }"
-  class="h-60 mx-auto"
-/>
-
----
-
----
-layout: two-cols
-heading: Formatter
----
-
-<VClicks depth="2">
-* Prettier-compatible code formatter
-* Focused on performance (work in progress)
-</VClicks>
-
-<!-- Chart will be added when available -->
-
----
-
-# Updates on Oxlint
+# Oxlint (Linter)
 
 <VClicks depth="2">
 
-* 50-100x faster than ESLint
+* Linter for JavaScript and TypeScript (including JSX/TSX)
+* Partial custom component support for now (`<script>` part of Vue/Svelte/... compoennts)
+* 50~100x faster than ESLint
 * 500+ rules ported from popular ESLint plugins
 * Used in [Preact](https://github.com/preactjs/preact/blob/main/oxlint.json), [Bun](https://github.com/oven-sh/bun/blob/main/oxlint.json), [Vue](https://github.com/vuejs/core/pull/13326) (PR open), Shopify, Airbnb, Mercedes-Benz, and many other projects
-* Stable, but a lot of features are in the making:
+* Stable, but a lot of features are being worked on:
   * Type-Aware linting (in preview already!)
   * JS Plugin support (custom lint rules)
-  * Goal: Good balance: Performance <-> Compatibility
+    * Goal: Performant while being as ESLint-compatible as possible
   * Fine-grained (per-glob) configuration
 
 </VClicks>
@@ -652,6 +612,45 @@ Finished in 22.5s on 264925 files with 101 rules using 10 threads.
 ```
 
 </VClick>
+
+---
+
+# Oxlint: Custom JS Plugins
+
+<img src="https://pbs.twimg.com/media/G1DoFzLakAASrOt?format=jpg&name=large" alt="Code demo" class="h-90 mx-auto">
+
+---
+
+# Minifier
+
+<VClicks depth="2">
+
+* **Not** the fastest minifier
+* **Not** the minifier with the best compression
+* Minifier with one of the **best** compression/speed tradeoffs
+* [Detailed benchmark](https://github.com/privatenumber/minification-benchmarks#-results) by `privatenumber`
+
+</VClicks>
+
+---
+
+# Formatter
+
+<VClicks depth="2">
+
+* Work-in-progress
+
+* Performant formatter with prettier-compatible defaults
+* Addressing issues such as line wrapping, print width
+* Built-in sorting
+* First class Tailwind Support planned
+* Current state:
+  * JavaScript | 620/699 (88.70%) -> 645/699 (92.27%)
+  * TypeScript | 329/573 (57.42%) -> 331/573 (57.77%)
+* [RFC open](https://github.com/oxc-project/oxc/discussions/13608) - please share your thoughts!
+
+</VClicks>
+
 
 ---
 layout: intro
