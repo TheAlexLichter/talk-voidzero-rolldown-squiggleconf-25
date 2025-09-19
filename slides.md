@@ -510,7 +510,7 @@ layout: intro
 * [Fastest](https://github.com/oxc-project/bench-resolver) Resolver (26x faster than `enhanced-resolve`)
 * [Fastest](https://github.com/oxc-project/bench-transformer) Transformer (40x Babel, 4x `swc`)
   * DTS emits (with Isolated Declarations) are ~20-45x faster than `tsc`
-* Fastest Linter - Oxlint (50~100x faster than ESLint)
+* [Fastest](https://github.com/oxc-project/bench-javascript-linter) Linter - Oxlint (50~100x faster than ESLint)
 * Minifier with [best speed/compression combo](https://github.com/privatenumber/minification-benchmarks)
 * Prettier-compatible & performant Formatter is work in progress
 
@@ -656,11 +656,11 @@ heading: Future plans of Rolldown-Vite
 * Phase 1 (current)
   * Separate package to stabilize and test `rolldown-vite`
 * Phase 2
-  * Full Bundle Mode as opt-in
+  * Vite 8 beta
+  * No separate package anymore
+* Phase 3
   * Merge changes into `vite` when stable
   * Rolldown is now the default Bundler for `vite`
-* Phase 3
-  * Full Bundle Mode as default
  
 </VClicks>
 
