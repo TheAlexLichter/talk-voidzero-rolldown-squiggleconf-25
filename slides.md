@@ -7,7 +7,6 @@ favicon: https://lichter.io/img/me@2x.jpg
 highlighter: shiki
 lineNumbers: true
 layout: intro
-transition: fade
 ---
 
 ---
@@ -656,10 +655,10 @@ layout: intro
 
 # Oxlint (Linter)
 
-<VClicks depth="2">
+<VClicks depth="3">
 
 * Linter for JavaScript and TypeScript (including JSX/TSX)
-* Partial custom component support for now (`<script>` part of Vue/Svelte/... compoennts)
+* Partial custom component support for now (`<script>` part of Vue/Svelte/... components)
 * 50~100x faster than ESLint
 * 570+ rules ported from popular ESLint plugins
 * Used in [Preact](https://github.com/preactjs/preact/blob/main/oxlint.json), [Bun](https://github.com/oven-sh/bun/blob/main/oxlint.json), [Vue](https://github.com/vuejs/core/pull/13326) (PR open), Shopify, Airbnb, Mercedes-Benz, and many other projects
@@ -979,6 +978,48 @@ layout: intro
   * Will also help for a more efficient `transform` hook in Rolldown
 
 </VClicks>
+
+---
+layout: intro
+---
+
+<div class="flex flex-col items-center justify-center">
+  <!-- Framework Level -->
+  <div class="flex flex-col items-center">
+    <span class="text-3xl font-bold mb-2">Your Framework</span>
+    <span class="text-gray-400 text-sm mt-1">Application code, UI, logic</span>
+  </div>
+
+  <!-- Down Arrow -->
+  <span class="text-4xl">↓</span>
+
+  <!-- Vite Level -->
+  <div class="flex flex-col items-center">
+    <logos-vitejs size="4rem" class="mb-2" />
+    <span class="text-2xl font-semibold">Vite</span>
+    <span class="text-gray-400 text-sm mt-1">Build tool, dev server, plugin system</span>
+  </div>
+
+  <!-- Down Arrow -->
+  <span class="text-4xl">↓</span>
+
+  <!-- Rolldown Level -->
+  <div class="flex flex-col items-center">
+    <VoidzeroIconsRolldown size="4rem" class="mb-2 rounded-full shadow-2xl border-2 border-black/50" />
+    <span class="text-xl font-semibold">Rolldown</span>
+    <span class="text-gray-400 text-sm mt-1">Bundler, chunking, plugin compatibility</span>
+  </div>
+
+  <!-- Down Arrow -->
+  <span class="text-4xl my-2">↓</span>
+
+  <!-- Oxc Level -->
+  <div class="flex flex-col items-center">
+    <VoidzeroIconsOxc size="4rem" class="mb-2" />
+    <span class="text-lg font-semibold">Oxc</span>
+    <span class="text-gray-400 text-sm mt-1">Parser, transformer, linter, minifier</span>
+  </div>
+</div>
 
 ---
 layout: two-cols
